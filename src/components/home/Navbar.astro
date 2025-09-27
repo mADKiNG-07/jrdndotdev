@@ -3,46 +3,43 @@ import { ModeToggle } from "@/lib/theme/modetoggle";
 import { Shell } from "@lucide/astro";
 import { Separator } from "../ui/separator";
 
-
-const navLinks = [
-  "About Me",
-  "Experience",
-  "Skills",
-  "Blog"
-]
+const navLinks = ["About Me", "Experience", "Skills", "Blog"];
 ---
+
 <div class="max-w-screen w-full border-b h-12 flex items-center justify-center">
   <div class="md:container flex justify-between items-center">
     <div class="flex h-5 items-center space-x-4 text-sm">
       <ModeToggle client:load />
-      <Separator orientation="vertical"/>
+      <Separator orientation="vertical" />
       {
-        navLinks.map((nl)=> (
-          <a href="#" class="text-zinc-500">{nl}</a>
+        navLinks.map((nl) => (
+          <a href="#" class="text-zinc-500">
+            {nl}
+          </a>
         ))
       }
     </div>
-    <div class="lg:flex gap-2 items-center hidden">
-      <Shell class="w-5 h-5 "/>
-     <p class="font-medium">tt.jrdn</p>
+    <div class="lg:flex gap-1 items-center hidden">
+      <Shell class="w-5 h-5 text-blue-500" />
+      <p class="font-medium">tt.jrdn</p>
     </div>
   </div>
 </div>
 
 <style>
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
     @media (min-width: 763px) {
-        .md\:container {
-            max-width: 763px;
-        }
+      .md\:container {
+        max-width: 763px;
+      }
     }
-}
+  }
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
     @media (min-width: 600px) {
-        .md\:container {
-            max-width: 600px;
-        }
+      .md\:container {
+        max-width: 600px;
+      }
     }
-}
+  }
 </style>

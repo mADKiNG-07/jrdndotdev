@@ -34,9 +34,9 @@ export function ModeToggle() {
       variant={"outline"}
     >
       {theme === "dark" ? (
-        <Sun className="w-4 h-4" />
+        <Sun className="w-4 h-4 text-amber-400" />
       ) : (
-        <Moon className="w-4 h-4" />
+        <Moon className="w-4 h-4 text-blue-400" />
       )}
     </Button>
   );
