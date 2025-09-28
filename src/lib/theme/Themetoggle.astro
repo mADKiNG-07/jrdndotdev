@@ -1,0 +1,69 @@
+---
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
+---
+
+<Button
+  id="themeToggle"
+  size={"icon"}
+  className="size-8 mr-4"
+  variant={"outline"}
+>
+  <Moon id="moonIcon" className="w-4 h-4 text-blue-400" />
+  <Sun id="sunIcon" className="w-4 h-4 text-amber-400 hidden" />
+</Button>
+
+<script is:inline>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem("theme") ?? "";
+    if (["dark", "light"].includes(localStorageTheme)) {
+      return localStorageTheme;
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  // Set initial theme
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+
+  window.localStorage.setItem("theme", theme);
+
+  // Update icon based on current theme
+  const updateIcon = () => {
+    const moonIcon = document.getElementById("moonIcon");
+    const sunIcon = document.getElementById("sunIcon");
+    const isDark = document.documentElement.classList.contains("dark");
+    
+    if (isDark) {
+      moonIcon?.classList.add("hidden");
+      sunIcon?.classList.remove("hidden");
+    } else {
+      moonIcon?.classList.remove("hidden");
+      sunIcon?.classList.add("hidden");
+    }
+  };
+
+  // Set initial icon state
+  updateIcon();
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    
+    // Update icon after toggle
+    updateIcon();
+  };
+
+  document.getElementById("themeToggle")?.addEventListener("click", () => {
+    handleToggleClick();
+  });
+</script>
