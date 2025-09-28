@@ -1,38 +1,37 @@
 ---
-import Navbar from '@/components/home/Navbar.astro';
-import Layout from '../layouts/Layout.astro';
-import Intro from '@/components/home/Intro.astro';
-
-
+import Navbar from "@/components/home/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import Intro from "@/components/home/Intro.astro";
+import Bio from "@/components/home/Bio.astro";
+import Skills from "@/components/home/Skills.astro";
 ---
 
-
 <Layout>
-	<Navbar />
+  <Navbar />
 
-	<div class="max-w-screen w-full flex items-center justify-center">
-		<div class="md:container flex flex-col justify-center py-5">
-            <Intro />
-        </div>
-	</div>
-	
-
+  <div class="max-w-screen w-full flex items-center justify-center">
+    <div class="md:container flex flex-col justify-center py-5 space-y-5">
+      <Intro />
+      <Bio />
+      <Skills />
+    </div>
+  </div>
 </Layout>
 
 <style>
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
     @media (min-width: 763px) {
-        .md\:container {
-            max-width: 763px;
-        }
+      .md\:container {
+        max-width: 763px;
+      }
     }
-}
+  }
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
     @media (min-width: 600px) {
-        .md\:container {
-            max-width: 600px;
-        }
+      .md\:container {
+        max-width: 600px;
+      }
     }
-}
+  }
 </style>

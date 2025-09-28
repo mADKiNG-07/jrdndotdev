@@ -13,7 +13,10 @@ const navLinks = ["About Me", "Experience", "Skills", "Blog"];
       <Separator orientation="vertical" />
       {
         navLinks.map((nl) => (
-          <a href="#" class="text-zinc-500">
+          <a
+            href="#"
+            class="text-muted-foreground hover:text-black dark:hover:text-white transition"
+          >
             {nl}
           </a>
         ))
